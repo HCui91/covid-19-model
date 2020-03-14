@@ -6,14 +6,15 @@ from numba import njit
 
 data = np.loadtxt("uk.txt")
 
-def SIR(t,beta,gamma):
+
+def SIR(t, beta, gamma):
     # Total population, N.
-    N = 100000
+    N = 600000 # UK approx. 6x Wuhan population
     # Initial number of infected and recovered individuals, I0 and R0.
-    I0, R0 = 9, 5
+    I0, R0 = 9, 0
     # Everyone else, S0, is susceptible to infection initially.
     S0 = N - I0 - R0
-    
+
     # The SIR model differential equations.
     @njit
     def deriv(y, t, N, beta, gamma):
@@ -22,7 +23,7 @@ def SIR(t,beta,gamma):
         dIdt = beta * S * I / N - gamma * I
         dRdt = gamma * I
         return dSdt, dIdt, dRdt
-    
+
     # Initial conditions vector
     y0 = S0, I0, R0
     # Integrate the SIR equations over the time grid, t.
@@ -30,12 +31,13 @@ def SIR(t,beta,gamma):
     S, I, R = ret.T
     return I
 
-day = np.arange(0,len(data),1)
-days = np.arange(0,len(data)+20,1)
 
-beta, gamma = [0.33838125,0.06476182]
+day = np.arange(0, len(data), 1)
+days = np.arange(0, len(data)+10, 1)
+
+beta, gamma = [0.33838125, 0.06476182]
 
 plt.figure(0)
-plt.scatter(day,data)
-plt.plot(days,SIR(days,beta,gamma))
+plt.scatter(day, data)
+plt.plot(days, SIR(days, beta, gamma))
 plt.show()
