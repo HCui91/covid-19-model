@@ -10,7 +10,6 @@ data = np.loadtxt("wuhan.txt")
 
 days = np.arange(0, len(data), 1)
 
-
 def SIR(t, beta, gamma):
     # Total population, N.
     N = 100000

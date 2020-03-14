@@ -6,7 +6,6 @@ from numba import njit
 
 data = np.loadtxt("uk.txt")
 
-
 def SIR(t, beta, gamma):
     # Total population, N.
     N = 600000 # UK approx. 6x Wuhan population
@@ -40,4 +39,5 @@ beta, gamma = [0.33838125, 0.06476182]
 plt.figure(0)
 plt.scatter(day, data)
 plt.plot(days, SIR(days, beta, gamma))
+plt.savefig("UK_prediction_14_Mar")
 plt.show()
