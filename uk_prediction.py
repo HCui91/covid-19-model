@@ -37,7 +37,9 @@ days = np.arange(0, len(data)+10, 1)
 beta, gamma = [0.33838125, 0.06476182]
 
 plt.figure(0)
-plt.scatter(day, data)
-plt.plot(days, SIR(days, beta, gamma))
-plt.savefig("UK_prediction_14_Mar")
+plt.scatter(day, data,marker="x",c="r",label="Data")
+plt.plot(days, SIR(days, beta, gamma),label="Wuhan model")
+plt.savefig("UK_prediction_15_Mar")
+plt.legend()
+plt.title("UK Prediction")
 plt.show()
