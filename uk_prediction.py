@@ -39,7 +39,7 @@ beta, gamma = [0.33838125, 0.06476182]
 plt.figure(0)
 plt.scatter(day, data,marker="x",c="r",label="Data")
 plt.plot(days, SIR(days, beta, gamma),label="Wuhan model")
-plt.savefig("UK_prediction_15_Mar")
+plt.savefig("UK_prediction")
 plt.legend()
 plt.title("UK Prediction")
 plt.show()

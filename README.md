@@ -25,7 +25,10 @@ Covariance matrix:
 |gamma|5.10117057e-06|4.55526000e-07|
 |beta|4.55526000e-07|9.14512396e-07|
 
+Last update: 15 Mar 2020
+
 ## UK prediction
 
-![15_Mar](UK_prediction_15_Mar.png)
+![UK_predict](UK_prediction.png)
 
+Last update: 17 Mar 2020
