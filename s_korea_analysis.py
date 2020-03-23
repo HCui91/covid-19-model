@@ -1,16 +1,20 @@
-import matplotlib.pyplot as plt
-import numpy as np
+import numpy as np 
+import matplotlib.pyplot as plt 
+from scipy.optimize import curve_fit
 from scipy.integrate import odeint
-
 from numba import njit
 
-data = np.loadtxt("uk.txt")
+data = np.loadtxt("s_korea.txt")
+
+data = data[10:50]
+
+days = np.arange(0, len(data), 1)
 
 def SIR(t, beta, gamma):
     # Total population, N.
-    N = 600000 # UK approx. 6x Wuhan population
+    N = 100000 * 51/11  # S Korea has 51m population, wuhan has 11m
     # Initial number of infected and recovered individuals, I0 and R0.
-    I0, R0 = 9, 0
+    I0, R0 = data[0], 0
     # Everyone else, S0, is susceptible to infection initially.
     S0 = N - I0 - R0
 
@@ -30,20 +34,14 @@ def SIR(t, beta, gamma):
     S, I, R = ret.T
     return I
 
+popt, pcov = curve_fit(SIR, days, data)
+print(popt, pcov)
 
-day = np.arange(0, len(data), 1)
-days = np.arange(0, len(data)+20,1)
-
-wuhan = [0.33838125, 0.06476182]
-s_korea = [1.15077646, 0.947307]
+print("R0:", 1/popt[0], "Recovery days:", 1/popt[1])
 
 plt.figure(0)
-plt.scatter(day, np.log10(data),marker="x",c="r",label="Data")
-plt.plot(days, np.log10(SIR(days, *wuhan)),label="Wuhan model")
-plt.plot(days, np.log10(SIR(days, *s_korea)),label="S Korea model")
+plt.scatter(days, data, label="data")
+plt.plot(days, SIR(days, *popt), label="SIR fit")
 plt.legend()
-plt.title("UK Prediction")
-plt.xlabel("Days")
-plt.ylabel(r'$log_{10}$(Infected cases)')
-plt.savefig("UK_prediction")
-plt.show()
+plt.title("S Korea SIR model")
+plt.savefig("s_korea_model")
