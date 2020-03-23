@@ -60,3 +60,10 @@ Last update: 23 Mar 2020
 Note: y axis is **log10** of infected cases.
 
 Last update: 23 Mar 2020
+
+## Italy prediction
+![Italy_predict](Italy/Italy_prediction_log10.png)
+
+It seemed that R0 in Italy is roughly higher than 3 (Wuhan model).
+
+Last update: 23 Mar 2020
