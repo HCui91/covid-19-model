@@ -31,4 +31,6 @@ Last update: 15 Mar 2020
 
 ![UK_predict](UK_prediction.png)
 
-Last update: 17 Mar 2020
+Note: y axis is **log10** of infected cases.
+
+Last update: 23 Mar 2020
