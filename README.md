@@ -3,7 +3,7 @@
 
 ## Wuhan model
 
-![wuhan_model](wuhan_model.png)
+![wuhan_model](Wuhan/wuhan_model.png)
 
 `wuhan_SIR_model.py' fits parameters in SIR model: gamma and beta
 - gamma: contact parameter = 1/R0
@@ -29,33 +29,33 @@ Last update: 15 Mar 2020
 
 ## Compare South Korea case development data
 
-![S_Korea](s_korea_model.png)
+![S_Korea](South_Korea/s_korea_model.png)
 
-Assume suspected population of south korea is 51/11 larger than Wuhan. Data with selected days fitted to SIR model. The above figure showed the fast outbreak part of the confirmed cases between **30th Jan and 10th March** (40 days). The later data after 10th March is less useful since no recovery data from S Korea is recorded.
+Assume suspected population of south korea is 51/11 larger than Wuhan. Data with selected days fitted to SIR model. The above figure showed the fast outbreak part of the confirmed cases between **30th Jan and 24th Feb** (25 days).
 
 Fitted parameters:
 
 |gamma|beta|
 |---|---|
-|1.15077646|0.947307|
+|1.43634329|1.18480972|
 
 |R0|recovery-day|
 |---|---|
-|0.8689784961162186|1.055623996210111|
+|0.6962123914245263|0.8440173825556665|
 
 Note: R0 in S Korea seemed to be smaller than 1.
 
 Covariance matrix:
 |pcov|gamma|beta|
 |---|---|---|
-|gamma|0.00017745|0.00016607|
-|beta|0.00016607|0.0001559|
+|gamma|5.80282701e-05|5.65953981e-05|
+|beta|5.65953981e-05|5.60933292e-05|
 
 Last update: 23 Mar 2020
 
 ## UK prediction
 
-![UK_predict](UK_prediction.png)
+![UK_predict](UK/UK_prediction.png)
 
 Note: y axis is **log10** of infected cases.
 
