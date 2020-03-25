@@ -6,13 +6,13 @@ from numba import njit
 
 data = np.loadtxt("s_korea.txt")
 
-data = data[5:40]
+data = data[5:35]
 
 days = np.arange(0, len(data), 1)
 
 def SIR(t, beta, gamma):
     # Total population, N.
-    N = 100000 * 51/11  # S Korea has 51m population, wuhan has 11m
+    N = 100000 * 42/11  # S Korea has 51m population, wuhan has 11m
     # Initial number of infected and recovered individuals, I0 and R0.
     I0, R0 = data[0], 0
     # Everyone else, S0, is susceptible to infection initially.
