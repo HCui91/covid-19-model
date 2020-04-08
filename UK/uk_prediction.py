@@ -35,7 +35,7 @@ def SIR(t, beta, gamma):
 day = np.arange(0, len(data), 1)
 days = np.arange(0, len(data)+20, 1)
 
-wuhan = [0.33838125,0.06476182]
+wuhan = [0.33838125, 0.06476182]
 s_korea = [1.29783287, 1.04570137]
 
 plt.figure(0)
